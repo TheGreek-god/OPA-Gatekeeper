@@ -1,11 +1,11 @@
 apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: RohanRequiredLabels
+kind: GreekgodRequiredLabels
 metadata:
-  name: ns-must-label-state
+  name: namespace-label
 spec:
   match:
     kinds:
       - apiGroups: [""]
         kinds: ["Namespace"]
   parameters:
-    labels: ["state"]
+    # labels: ["state"] # REQUIRED: Every namespace must have this label

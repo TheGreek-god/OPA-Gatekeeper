@@ -1,11 +1,11 @@
 apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: RohanRequiredLabels
+kind: GreekgodRequiredLabels
 metadata:
-  name: pod-must-have-lable
+  name: pod-label
 spec:
   match:
     kinds:
       - apiGroups: [""]
         kinds: ["Pod"]   
   parameters:
-    labels: ["app"]
+    labels: ["app"] # REQUIRED: Every pod must have this label

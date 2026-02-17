@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weather-app
+  namespace: weatherapp
+  labels:
+    app: weather-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weather-app
+  template:
+    metadata:
+      labels:
+        app: weather-app # ⭐⭐⭐ CRITICAL - THIS IS WHAT THE POLICY CHECKS! ⭐⭐⭐
+    spec:
+      containers:
+      - name: weather-app
+        image: wededo4644/weather-app:88
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: weather-app-service
+  namespace: weatherapp
+spec:
+  selector:
+    app: weather-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: NodePort  # or LoadBalancer

@@ -3,13 +3,13 @@
 apiVersion: templates.gatekeeper.sh/v1
 kind: ConstraintTemplate                    # Template Identifying Info
 metadata:
-  name: rohanrequiredlabels
+  name: greekgodrequiredlabels
 # ----------------------------------------------------------------
 spec:
   crd:
     spec:
       names:
-        kind: RohanRequiredLabels        # Template values for constraint crd's                                          
+        kind: GreekgodRequiredLabels        # Template values for constraint crd's                                          
       validation:
         # Schema for the `parameters` field
         openAPIV3Schema:
@@ -30,6 +30,6 @@ spec:
           required := {label | label := input.parameters.labels[_]}
           missing := required - provided
           count(missing) > 0
-          msg := sprintf("you must provide labels: %v", [missing])
+          msg := sprintf("👮 you must provide labels: %v", [missing])
         }
 # ----------------------------------------------------------------

@@ -41,7 +41,7 @@ kubectl get ConstraintTemplate
 ### Apply/Create your constraint
 
 ```bash
-kubectl create -f pod-must-have-label.yaml
+kubectl create -f pod-label.yaml
 ```
 
 ```bash 
@@ -65,7 +65,7 @@ kubectl expose pod weather-app --type=NodePort --port=3000 --target-port=3000 --
 ### Apply for namespace
 
 ```bash
-kubectl apply -f ns-must-label.yaml
+kubectl apply -f namespace-label.yaml
 ```
 
 ```bash
