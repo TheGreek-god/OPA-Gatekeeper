@@ -81,14 +81,13 @@ kubectl create ns test
 ### Validate namespace constraint with label
 
 ```bash
-kubectl create -f test-namespace.yaml
+kubectl create -f namespace.yaml
 ```
 
 ### Check for Violations
 
 ```bash
 kubectl get constraints
-kubectl describe  rohanrequiredlabels ns-must-label-state
 ```
 
 
